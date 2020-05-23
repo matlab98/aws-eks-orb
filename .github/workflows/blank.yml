@@ -29,7 +29,8 @@ jobs:
        
     - name: pod apply
       run: |
-       kubectl config view 
+       aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
+       kubectl config view && kubectl get svc
        
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
