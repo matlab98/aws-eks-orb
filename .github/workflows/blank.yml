@@ -37,7 +37,7 @@ jobs:
     - name: pod deploy
       run: |
        aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
-       kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f deployment.yml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
+       kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f ./deployment.yml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
  
     - name: pelea
       run: |
