@@ -31,16 +31,18 @@ jobs:
       run: |
        kubectl version --client=true \ 
        pwd 
+
+    - name: Dormir por 3 minutos
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '900s'
+        
        
     - name: pod apply
       run: |
        aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
        kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f https://k8s.io/examples/application/deployment.yaml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
  
-    - name: Dormir por 3 minutos
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '900s'
     - name: pelea
       run: |
        kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
