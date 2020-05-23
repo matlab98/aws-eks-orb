@@ -24,7 +24,7 @@ jobs:
     - name: Deploy k8s yaml
 
       run: |
-        aws eks create-cluster --name Cluster-demo \
+        aws eks create-cluster --name Cluster-d \
         --role-arn arn:aws:iam::240081667441:role/Aws \
         --resources-vpc-config subnetIds=subnet-03c011d8e59dadebc,subnet-092138c353feed8d7,securityGroupIds=sg-03553a948d763e792
     - name: pod kubctl version
@@ -40,7 +40,7 @@ jobs:
        
     - name: pod apply
       run: |
-       aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
+       aws eks --region us-east-2 update-kubeconfig --name Cluster-d &&
        kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f https://k8s.io/examples/application/deployment.yaml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
  
     - name: pelea
@@ -49,4 +49,4 @@ jobs:
     - name: Crear node-group
       
       run: |
-       aws eks create-nodegroup --cluster-name=Cluster-demo --nodegroup-name=pepe --subnets=subnet-05226b7df7a7f93a7 --node-role=arn:aws:iam::343942719020:role/Clave-valor
+       aws eks create-nodegroup --cluster-name=Cluster-d --nodegroup-name=pepe --subnets=subnet-05226b7df7a7f93a7 --node-role=arn:aws:iam::343942719020:role/Clave-valor
