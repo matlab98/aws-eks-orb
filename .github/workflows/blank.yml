@@ -48,4 +48,4 @@ jobs:
     - name: Crear node-group
       
       run: |
-       aws eks create-nodegroup --cluster-name=Cluster-demo --nodegroup-name=pepe2 --subnets=subnet-03c011d8e59dadebc --node-role=arn:aws:iam::240081667441:role/Bebe
+       aws eks create-nodegroup --cluster-name=Cluster-d --nodegroup-name=pep --subnets=subnet-03c011d8e59dadebc --node-role=arn:aws:iam::240081667441:role/Bebe
