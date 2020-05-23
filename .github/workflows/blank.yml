@@ -23,10 +23,7 @@ jobs:
         aws-region: us-east-2
     - name: Deploy k8s yaml
 
-      run: |
-        aws eks create-cluster --name Cluster-demo \
-        --role-arn arn:aws:iam::240081667441:role/Aws \
-        --resources-vpc-config subnetIds=subnet-03c011d8e59dadebc,subnet-092138c353feed8d7,securityGroupIds=sg-03553a948d763e792
+      
     - name: pod kubctl version
       run: |
        kubectl version --client=true \ 
@@ -35,13 +32,13 @@ jobs:
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
       with:
-        time: '900s'
+        time: '500s'
     
        
     - name: pod apply
       run: |
        aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
-       kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f https://k8s.io/examples/application/deployment.yaml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
+       kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f ./deployment.yaml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
  
     - name: pelea
       run: |
