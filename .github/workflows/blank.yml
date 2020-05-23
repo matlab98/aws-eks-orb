@@ -30,10 +30,7 @@ jobs:
         --resources-vpc-config subnetIds=subnet-05226b7df7a7f93a7,subnet-092acba3f13e38833,securityGroupIds=sg-0512fccb0fe05efd6
     - name: pod
       run: |
-       kubectl wait --namespace ingress-nginx \ 
-       --for=condition=ready pod \
-       --selector=app.kubernetes.io/component=controller \ 
-       --timeout=90s
+       kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/aws/deploy.yaml
        
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
