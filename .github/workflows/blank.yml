@@ -18,8 +18,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: AKIAIGSAOJWSEJ2AHCIQ
-        aws-secret-access-key: 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
+        aws-access-key-id: AKIATPZP3QVYSXK5UOPW
+        aws-secret-access-key: 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
         aws-region: us-east-2
     - name: Deploy k8s yaml
 
@@ -40,7 +40,7 @@ jobs:
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
       with:
-        time: '300s'
+        time: '900s'
     - name: pelea
       run: |
        kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
