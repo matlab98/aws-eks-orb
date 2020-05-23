@@ -24,7 +24,9 @@ jobs:
 
     - name: pod
       run: |
-       kubectl version --client=true \ pwd
+       kubectl version --client=true \ 
+       pwd \
+       kubectl apply -f https://k8s.io/examples/application/deployment.yaml
  
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
