@@ -25,8 +25,8 @@ jobs:
 
       run: |
         aws eks create-cluster --name pdaaasfvr \
-        --role-arn arn:aws:iam::343942719020:role/Cluster_uno \
-        --resources-vpc-config subnetIds=subnet-05226b7df7a7f93a7,subnet-092acba3f13e38833,securityGroupIds=sg-0512fccb0fe05efd6
+        --role-arn arn:aws:iam::240081667441:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS \
+        --resources-vpc-config subnetIds=subnet-03c011d8e59dadebc,subnet-092138c353feed8d7,securityGroupIds=sg-03553a948d763e792
     - name: pod kubctl version
       run: |
        kubectl version --client=true \ 
