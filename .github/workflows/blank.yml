@@ -22,14 +22,17 @@ jobs:
         aws-secret-access-key: GU7Rjpm2ejFIRRq4u1CasbHky0iqXy3lRwxWgtCJ
         aws-region: us-east-2
 
-    - name: pod
+    - name: pod kubctl version
       run: |
        kubectl version --client=true \ 
-       pwd \
+       pwd 
+       
+    - name: pod apply
+      run: |
        kubectl apply -f https://k8s.io/examples/application/deployment.yaml \
        kubectl describe deployment nginx-deployment  \
        ls
- 
+       
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
       with:
