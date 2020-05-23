@@ -32,7 +32,7 @@ jobs:
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
       with:
-        time: '0s'
+        time: '5s'
     
        
     - name: pod apply
