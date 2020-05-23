@@ -34,7 +34,7 @@ jobs:
         time: '0s'
     
        
-    - name: pod apply
+    - name: pod 
       run: |
        aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
        kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f ./deployment.yaml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
