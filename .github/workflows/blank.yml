@@ -41,7 +41,7 @@ jobs:
  
     - name: pelea
       run: |
-       kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx && kubectl --kubeconfig ./kubeconfig expose deployment/my-nginx  \
+       kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx && kubectl --kubeconfig ./.kube/config/kubeconfig expose deployment/my-nginx  \
        --port=80 --target-port=80 \
        --name=my-nginx-service --type=LoadBalancer
     - name: Crear node-group
