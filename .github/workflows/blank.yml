@@ -27,7 +27,8 @@ jobs:
        kubectl version --client=true \ 
        pwd \
        kubectl apply -f https://k8s.io/examples/application/deployment.yaml \
-       kubectl describe deployment nginx-deployment
+       kubectl describe deployment nginx-deployment  \
+       ls
  
     - name: Dormir por 3 minutos
       uses: jakejarvis/wait-action@master
