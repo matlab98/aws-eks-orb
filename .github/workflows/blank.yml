@@ -25,4 +25,6 @@ jobs:
     - name: Deploy k8s yaml
 
       run: |
-        mkdir carpeta
+        aws eks create-cluster --name prod \
+        --role-arn arn:aws:iam::343942719020:role/Cluster_uno \
+        --resources-vpc-config subnetIds=subnet-05226b7df7a7f93a7,subnet-092acba3f13e38833,securityGroupIds=sg-0512fccb0fe05efd6
