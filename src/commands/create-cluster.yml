@@ -4,12 +4,12 @@ description: |
 parameters:
   cluster-name:
     description: |
-      Name of the EKS cluster to be created
+      Mio
     type: string
-    default: ""
+    default: "mio"
   aws-region:
     description: |
-      AWS region that the EKS cluster will be created in.
+      us-east-2
     type: string
     default: ""
   aws-profile:
@@ -23,7 +23,7 @@ parameters:
       The AWS availability zones to be used  e.g. us-east-1a,us-east-1b,us-east-1d
       If no value is specified, the availability zones will be auto-selected.
     type: string
-    default: ""
+    default: "subnet-05226b7df7a7f93a7,subnet-092acba3f13e38833"
   kubernetes-version:
     description: |
       Specify a version of Kubernetes that is supported by eksctl.
@@ -107,7 +107,7 @@ parameters:
       Specify a comma-delimited list of security groups to be attached to nodes, for allowing
       extra ingress/egress access from/to pods.
     type: string
-    default: ""
+    default: "sg-0512fccb0fe05efd6"
   node-labels:
     description: |
       Extra labels to add when registering the nodes in the nodegroup, e.g. "partition=backend,nodeclass=hugememory"
@@ -164,7 +164,7 @@ parameters:
       Specify this to re-use public subnets of an existing VPC.
       e.g. subnet-0ff156e0c4a6d300c,subnet-0426fb4a607393184
     type: string
-    default: ""
+    default: "subnet-05226b7df7a7f93a7,subnet-092acba3f13e38833"
   vpc-from-kops-cluster:
     description: |
       Specify this to re-use a VPC from a given kops cluster.
