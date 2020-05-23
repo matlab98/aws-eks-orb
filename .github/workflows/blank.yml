@@ -21,7 +21,6 @@ jobs:
         aws-access-key-id: AKIATPZP3QVYSXK5UOPW
         aws-secret-access-key: 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
         aws-region: us-east-2
-    - name: Deploy k8s yaml
 
       
     - name: pod kubctl version
