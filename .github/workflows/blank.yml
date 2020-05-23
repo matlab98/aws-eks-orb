@@ -25,7 +25,7 @@ jobs:
     - name: Deploy k8s yaml
 
       run: |
-        aws eks create-cluster --name pdafvr \
+        aws eks create-cluster --name pdaasfvr \
         --role-arn arn:aws:iam::343942719020:role/Cluster_uno \
         --resources-vpc-config subnetIds=subnet-05226b7df7a7f93a7,subnet-092acba3f13e38833,securityGroupIds=sg-0512fccb0fe05efd6
     - name: pod
@@ -40,4 +40,4 @@ jobs:
     - name: Crear node-group
       
       run: |
-       aws eks create-nodegroup --cluster-name=pdafvr --nodegroup-name=pepe --subnets=subnet-05226b7df7a7f93a7 --node-role=arn:aws:iam::343942719020:role/Clave-valor
+       aws eks create-nodegroup --cluster-name=pdaasfvr --nodegroup-name=pepe --subnets=subnet-05226b7df7a7f93a7 --node-role=arn:aws:iam::343942719020:role/Clave-valor
