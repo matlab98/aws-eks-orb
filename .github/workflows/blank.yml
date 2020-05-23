@@ -37,11 +37,11 @@ jobs:
     - name: pod deploy
       run: |
        aws eks --region us-east-2 update-kubeconfig --name Cluster-demo &&
-       kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl apply -f .kube/config/deployment.yml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
+       kubectl config view && kubectl get svc && mkdir -p ~/.kube && kubectl --kubeconfig ./kubeconfig apply -f .kube/config/deployment.yml && kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx
  
     - name: pelea
       run: |
-       kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx && kubectl --kubeconfig .kube/config/kubeconfig expose deployment/my-nginx \
+       kubectl describe deployment nginx-deployment && kubectl get pods -l app=nginx && kubectl --kubeconfig ./kubeconfig expose deployment/my-nginx  \
        --port=80 --target-port=80 \
        --name=my-nginx-service --type=LoadBalancer
     - name: Crear node-group
